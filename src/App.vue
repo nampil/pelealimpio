@@ -1,28 +1,55 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+    <loading v-if="loading" />
+    <nav-bar></nav-bar>
+    <hero />
+    <stats ref="stats" />
+    <proximo-evento />
+    <pensamiento />
+    <acerda-de />
+    <testimonios />
+    <agenda />
+    <ponente />
+    <contacto />
+    <colofon />
   </div>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
-
+import NavBar from '@/components/NavBar'
+import Hero from '@/components/Hero'
+import Stats from '@/components/Stats'
+import Pensamiento from '@/components/Pensamiento'
+import Agenda from '@/components/Agenda'
+import Testimonios from '@/components/Testimonios'
+import AcercaDe from '@/components/AcercaDe'
+import ProximoEvento from '@/components/ProximoEvento'
+import Ponente from '@/components/Ponente'
+import Contacto from '@/components/Contacto'
+import Colofon from '@/components/Colofon'
 export default {
-  name: "App",
+  name: 'App',
   components: {
-    HelloWorld
-  }
-};
+    'nav-bar': NavBar,
+    hero: Hero,
+    stats: Stats,
+    pensamiento: Pensamiento,
+    agenda: Agenda,
+    testimonios: Testimonios,
+    'acerda-de': AcercaDe,
+    'proximo-evento': ProximoEvento,
+    ponente: Ponente,
+    contacto: Contacto,
+    colofon: Colofon,
+  },
+  computed: {
+    loading() {
+      return this.$store.state.loading
+    },
+  },
+}
 </script>
 
 <style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+@import '~@/scss/main.scss';
 </style>
